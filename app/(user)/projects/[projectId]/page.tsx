@@ -3,6 +3,7 @@ import { projects as dbProjects } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import Link from "next/link";
 import { Globe } from "lucide-react";
+import Table from "@/components/table";
 
 const page = async ({ params }: { params: { projectId: string } }) => {
   if (!params.projectId) return <div>Project Not Found</div>;
@@ -34,6 +35,9 @@ const page = async ({ params }: { params: { projectId: string } }) => {
             <span className="text-lg">Visit site</span>
           </Link>
         ) : null}
+      </div>
+      <div>
+        <Table data={project.feedbacks} />
       </div>
     </div>
   );
