@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import SubscribeBtn from "../payments/subscribe-btn";
+import { monthlyPlanId, yearlyPlanId } from "@/lib/payments";
 
 type Project = InferSelectModel<typeof projects>;
 
@@ -35,6 +37,7 @@ const ProjectsList = (props: Props) => {
             </Card>
           </li>
         ))}
+        <SubscribeBtn price={monthlyPlanId} />
       </ul>
     </div>
   );
