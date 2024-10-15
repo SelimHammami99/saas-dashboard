@@ -23,6 +23,8 @@ import {
 import { InferSelectModel } from "drizzle-orm";
 import { feedbacks } from "@/db/schema";
 
+import Ratings from "./ratings";
+
 type Feedback = InferSelectModel<typeof feedbacks>;
 
 function Table(props: { data: Feedback[] }) {
@@ -41,6 +43,18 @@ function Table(props: { data: Feedback[] }) {
         id: "userEmail",
         cell: (info) => info.getValue(),
         header: () => <span>Email</span>,
+        footer: (props) => props.column.id,
+      },
+      {
+        accessorFn: (row) => row.rating,
+        id: "rating",
+        cell: (info) =>
+          info.getValue() === null ? (
+            <span>N/A</span>
+          ) : (
+            <Ratings rating={info.getValue()} count={5} />
+          ),
+        header: () => <span>Rating</span>,
         footer: (props) => props.column.id,
       },
       {
@@ -99,7 +113,7 @@ function MyTable({
   return (
     <div className="p-2 mt-5">
       <div className="h-2" />
-      <table>
+      <table className="w-full">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="border-b border-slate-300">

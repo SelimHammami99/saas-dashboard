@@ -8,6 +8,13 @@
       "when": 1728388260207,
       "tag": "0000_steady_ulik",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1728998369746,
+      "tag": "0001_regular_silverclaw",
+      "breakpoints": true
     }
   ]
 }

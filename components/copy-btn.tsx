@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 
 const CopyBtn = ({ text }: { text: string }) => {
-  const [copyStatus, setCopyStatus] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<boolean>(false);
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
