@@ -2,6 +2,7 @@ import { InferSelectModel } from "drizzle-orm";
 import { projects } from "@/db/schema";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -10,7 +11,9 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import SubscribeBtn from "../payments/subscribe-btn";
-import { monthlyPlanId, yearlyPlanId } from "@/lib/payments";
+import { monthlyPlanId } from "@/lib/payments";
+import { Lock } from "lucide-react";
+import ChatGPTCarousel from "@/components/gpt-card";
 
 type Project = InferSelectModel<typeof projects>;
 
@@ -37,7 +40,34 @@ const ProjectsList = (props: Props) => {
             </Card>
           </li>
         ))}
-        <SubscribeBtn price={monthlyPlanId} />
+        {/* <Card className="max-w-[350px] flex flex-col h-full bg-gray-300">
+          <CardHeader className="flex-1">
+            <CardTitle className="flex flex-row text-sm md:text-lg items-center">
+              <Lock className="h-4 w-4 md:h-8 md:w-8 mr-2" />
+              <span>Upgrade to Premuim</span>
+            </CardTitle>
+            <CardDescription className="mt-3">
+              Unlock unlimited projects and more features
+            </CardDescription>
+          </CardHeader>
+          <div className="w-fit mx-auto mb-4">
+            <SubscribeBtn price={monthlyPlanId} />
+          </div>
+        </Card> */}
+        <Card className="max-w-[350px] h-full flex flex-col bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 dark:from-blue-600 dark:via-indigo-600 dark:to-purple-600 overflow-hidden border-0 rounded-lg shadow-md">
+          <CardContent className="p-6  flex flex-col justify-between">
+            <div className="flex flex-row text-sm md:text-lg items-center text-white">
+              <Lock className="h-6 w-6 mr-2" />
+              <span>Upgrade to Premuim</span>
+            </div>
+            <div className=" text-white mt-3">
+              Unlock unlimited projects and more features
+            </div>
+            <div className="w-fit mx-auto mb-4">
+              <SubscribeBtn price={monthlyPlanId} />
+            </div>
+          </CardContent>
+        </Card>
       </ul>
     </div>
   );
