@@ -50,7 +50,7 @@ function Table(props: { data: Feedback[] }) {
           info.getValue() === null ? (
             <span>N/A</span>
           ) : (
-            <Ratings rating={info.getValue()} count={5} />
+            <Ratings rating={info.getValue() as number} count={5} />
           ),
         header: () => <span>Rating</span>,
         footer: (props) => props.column.id,
