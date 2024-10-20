@@ -28,8 +28,6 @@ import Ratings from "./ratings";
 type Feedback = InferSelectModel<typeof feedbacks>;
 
 function Table(props: { data: Feedback[] }) {
-  //   const rerender = React.useReducer(() => ({}), {})[1];
-
   const columns = React.useMemo<ColumnDef<Feedback>[]>(
     () => [
       {

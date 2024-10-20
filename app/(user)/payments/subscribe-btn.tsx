@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { getStripe } from "@/lib/stripe-client";
-import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 
 type Props = {
@@ -9,7 +8,6 @@ type Props = {
 };
 
 const SubscribeBtn = ({ price }: Props) => {
-  const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -39,20 +37,6 @@ const SubscribeBtn = ({ price }: Props) => {
   }
 
   return (
-    // <Button
-    //   onClick={() => handleCheckout(price)}
-    //   className="bg-indigo-700"
-    //   disabled={loading}
-    // >
-    //   {loading ? (
-    //     <>
-    //       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-    //       Please Wait
-    //     </>
-    //   ) : (
-    //     "Subscribe"
-    //   )}
-    // </Button>
     <button
       disabled={loading}
       onClick={() => handleCheckout(price)}
