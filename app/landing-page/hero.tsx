@@ -45,6 +45,7 @@ const Hero = () => {
           <Image
             src={"/demo.gif"}
             alt="demo"
+            layout="responsive"
             width={575}
             height={575}
             unoptimized={true}
