@@ -15,7 +15,6 @@ const page = async () => {
   });
 
   const plan = subscription && subscription.subscribed ? "Premuim" : "Free";
-  console.log(subscription);
 
   return (
     <div className="p-4 border rounded-md">
